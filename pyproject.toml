@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "release-captain"
+version = "0.1.0"
+description = "Local-first release analysis with optional, ephemeral AI credentials"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Release Captain contributors"}]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["mypy>=1.11", "ruff>=0.6"]
+
+[project.scripts]
+recap = "recap.cli.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.mypy]
+python_version = "3.11"
+mypy_path = "src"
+strict = true
